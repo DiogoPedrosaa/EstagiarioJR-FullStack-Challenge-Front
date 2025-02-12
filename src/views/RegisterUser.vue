@@ -91,8 +91,8 @@
   
   <script lang="ts">
 import { defineComponent, ref } from "vue";
-import axios from "axios";
 import { useRouter } from "vue-router";
+import apiClient from "@/services/axios";
 
 export default defineComponent({
   name: "RegisterUser",
@@ -119,11 +119,11 @@ export default defineComponent({
       }
 
       try {
-        const response = await axios.post("http://localhost:80/api/register/", {
+        const response = await apiClient.post("/register/", {
           username: username.value,
-          email: email.value,  // Adiciona o email aqui
+          email: email.value,  
           password: password.value,
-          password_confirm: confirmPassword.value,  // Adiciona a confirmação de senha
+          password_confirm: confirmPassword.value,  
         });
         console.log(response.data);
         
@@ -149,7 +149,6 @@ export default defineComponent({
   },
 });
 </script>
-
   
   <style scoped>
   .login-container {
