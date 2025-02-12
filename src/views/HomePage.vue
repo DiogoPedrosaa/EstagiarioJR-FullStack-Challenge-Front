@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <header class="header">
       <div class="top-bar d-flex justify-content-between align-items-center px-3 py-2">
         <img
@@ -10,56 +9,78 @@
         />
       </div>
       <div class="blue-line d-flex justify-content-start align-items-center py-2">
-        
-        <button type="button" class="btn btn-primary ml-2" @click="goToLogin">
-          Go to Login
-        </button>
       
+        <button v-if="isAuthenticated" class="btn btn-danger ml-2" @click="logout">Deslogar</button>
       </div>
     </header>
 
-    
     <main class="content container mt-4">
       <div id="conteudo"></div>
       <div class="company-description bg-light p-4 rounded shadow-sm">
-        <h2>Sobre a Empresa</h2>
+        <h2>A Secretaria Municipal da Fazenda</h2>
         <p>
-          Somos uma empresa dedicada a fornecer os melhores serviços para nossos clientes. Nossa missão é...
+          A Secretaria Municipal de Fazenda de Maceió (Sefaz) é o órgão responsável por planejar e executar as políticas fiscal, tributária, orçamentária e financeira do município. Suas principais atribuições incluem a arrecadação de tributos municipais, como o Imposto Predial e Territorial Urbano (IPTU) e o Imposto Sobre Serviços (ISS), além de gerenciar o orçamento municipal e implementar medidas de desburocratização fiscal para promover o desenvolvimento econômico local
         </p>
+        <p>
+          Para facilitar o acesso dos contribuintes aos serviços oferecidos, a Sefaz disponibiliza o portal de serviços online, que recentemente passou por uma atualização para se tornar mais intuitivo e interativo. A plataforma permite a emissão de guias de pagamento, certidões, consultas e abertura de processos administrativos, entre outros serviços. Além disso, o portal agora oferece acesso por meio da conta Gov.br, garantindo maior segurança e praticidade aos usuários.
+        </p>
+        <p>
+          Com a modernização dos serviços e a implementação de novas tecnologias, a Sefaz busca promover a transparência e a eficiência na gestão fiscal do município, contribuindo para o desenvolvimento econômico e social de Maceió. A Secretaria Municipal de Fazenda reafirma seu compromisso com a população e os contribuintes, buscando sempre aprimorar seus processos e oferecer um atendimento de qualidade e excelência.
+        </p>
+        <div class="text-center mt-4">
+          <button class="btn btn-func" @click="goToEmployees">
+            Conheça nossos funcionários
+          </button>
+        </div>
       </div>
-      <img
-        src="https://maceioalgovbr.dhost.cloud/assets/images/maceio_topo.svg"
-        class="imagem-fundo img-fluid mt-3"
-        
-      />
-        </main>
-
-        <footer class="footer bg-dark text-white text-center py-3 mt-4">
-      © 2025 | CTIT - Secretaria municipal da fazenda de maceio
-        </footer>
+    </main>
+    
+    <div class="imagem-fundo"></div>
   </div>
 </template>
 
+
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useRouter } from "vue-router";
 
 export default defineComponent({
-  
   setup() {
     const router = useRouter();
+    const isAuthenticated = ref(false);
 
-    const goToLogin = () => {
-      router.push({ name: "login" }); 
+    
+    const checkAuthStatus = () => {
+      const token = localStorage.getItem("authToken");
+      isAuthenticated.value = !!token;
     };
 
+    
+    const logout = () => {
+      localStorage.removeItem("authToken");
+      isAuthenticated.value = false;
+      router.push({ name: "login" });
+    };
+
+    const goToHome = () => {
+      router.push({ name: "home" });
+    };
+
+    const goToEmployees = () => {
+      router.push({ name: "servidores" });
+    };
+
+
+    checkAuthStatus();
+
     return {
-      goToLogin,
+      isAuthenticated,
+      goToHome,
+      goToEmployees,
+      logout,
     };
   },
 });
-
-
 </script>
 
 <style scoped>
@@ -109,13 +130,13 @@ body {
 }
 
 .imagem-fundo {
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  background-image: url("https://maceioalgovbr.dhost.cloud/assets/images/maceio_topo.svg");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
   width: 100%;
-  height: auto;
-  opacity: 0.8;
-  z-index: 1; 
+  height: 300px; 
+  margin-top: 20px;
 }
 
 .blue-line {
@@ -136,15 +157,13 @@ body {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   padding: 10px 0;
   font-size: 14px;
-  z-index: 2; 
+  margin-top: 0;
 }
 
 .company-description {
@@ -161,11 +180,23 @@ body {
 .company-description h2 {
   font-size: 2rem;
   margin-bottom: 10px;
+  z-index: 1;
 }
 
 .company-description p {
   font-size: 1rem;
   line-height: 1.5;
+  z-index: 1;
 }
 
+.btn-func{
+  background: #e07d1f;
+  border: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-func:hover{
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 </style>
