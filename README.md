@@ -1,4 +1,5 @@
-##Desafio Estagiario Junior Front-End
+## Desafio Estagiario Junior Front-End
+
 Este repositório contém o projeto desenvolvido para o desafio de Estagiário JR FullStack.
 A aplicação é composta por um Front que consome dados de uma API back-end desenvolvida em outro repositório: [BACKEND](https://github.com/DiogoPedrosaa/EstagiarioJR-FullStack-Challenge) <p>
 O Front tem um objetivo de ser simples destacando as atividades exercidas pela SEFAZ, alem de uma lista de servidores da secretaria onde podem ser visualizado informações basicas, e caso o usuario esteja autenticado ele pode manipular essas informação, seja editando, deletando ou criando novos servidores. <p>
