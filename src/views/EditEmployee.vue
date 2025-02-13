@@ -1,25 +1,6 @@
 <template>
   <div>
-    <header class="header">
-      <div class="top-bar d-flex justify-content-between align-items-center px-3 py-2">
-        <img
-          src="https://maceioalgovbr.dhost.cloud/assets/images/logo_prefeitura_de_maceio.svg"
-          alt="Prefeitura de Maceió"
-          class="maceio-logo"
-        />
-      </div>
-      <div class="blue-line d-flex justify-content-start align-items-center py-2">
-        <button type="button" class="btn btn-primary ml-2" @click="goToHome">Retornar</button>
-        <button 
-          v-if="isAuthenticated"
-          type="button"
-          class="btn btn-danger ml-2"
-          @click="logout"
-        >
-          Deslogar
-        </button>
-      </div>
-    </header>
+    <AppHeader :isAuthenticated="isAuthenticated" @logout="logout" />
 
     <main class="content container mt-4">
       <div class="company-description bg-light p-4 rounded shadow-sm">
@@ -76,8 +57,13 @@
 import { defineComponent, ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import apiClient from "@/services/axios";
-
+import AppHeader from "@/components/AppHeader.vue";
 export default defineComponent({
+  components: {
+    AppHeader,
+  },
+
+
   setup() {
     const route = useRoute();
     const router = useRouter();
@@ -171,6 +157,7 @@ export default defineComponent({
       goToHome,
       logout,
       departments,
+      AppHeader,
     };
   },
 });
