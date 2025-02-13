@@ -28,7 +28,7 @@
           Com a modernização dos serviços e a implementação de novas tecnologias, a Sefaz busca promover a transparência e a eficiência na gestão fiscal do município, contribuindo para o desenvolvimento econômico e social de Maceió. A Secretaria Municipal de Fazenda reafirma seu compromisso com a população e os contribuintes, buscando sempre aprimorar seus processos e oferecer um atendimento de qualidade e excelência.
         </p>
         <div class="text-center mt-4">
-          <button class="btn btn-func" @click="goToEmployees">
+          <button class="btn btn-primary btn-func" @click="goToEmployees">
             Conheça nossos funcionários
           </button>
         </div>
@@ -191,12 +191,13 @@ body {
 
 .btn-func{
   background: #e07d1f;
+  color: white;
   border: none;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.btn-func:hover{
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+.btn-func:hover {
+  background: #a05917;
 }
+
+
 </style>
