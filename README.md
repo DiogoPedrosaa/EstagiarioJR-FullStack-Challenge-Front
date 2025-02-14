@@ -2,7 +2,7 @@ Este repositório contém o projeto desenvolvido para o desafio de Estagiário J
 A aplicação é composta por um Front que consome dados de uma API back-end desenvolvida em outro repositório: [BACKEND](https://github.com/DiogoPedrosaa/EstagiarioJR-FullStack-Challenge) <p>
 O Front tem um objetivo de ser simples destacando as atividades exercidas pela SEFAZ, alem de uma lista de servidores da secretaria onde podem ser visualizado informações basicas, e caso o usuario esteja autenticado ele pode manipular essas informação, seja editando, deletando ou criando novos servidores. <p>
 A Aplicação tambem conta com um sistema de Login que é necessario para realizar algumas atividades dentro do sistema, e tambem uma parte de Registro para a criação de uma conta. <P>
-O Consumo da API está configurado para o localhost na porta 80, então é importante ter o back end rodando nessa porta para que a aplicação consiga consumir os dados do Back-End, caso queria alterar esse padrão pode ser feito no diretorio: \maceio-in\src\services\axios.ts
+O Consumo da API está configurado para o localhost na porta 8080, então é importante ter o back end rodando nessa porta para que a aplicação consiga consumir os dados do Back-End, caso queria alterar esse padrão pode ser feito no diretorio: \maceio-in\src\services\axios.ts
 
 ## Tecnologias Utilizadas
 
