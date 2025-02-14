@@ -16,7 +16,7 @@ O Consumo da API está configurado para o localhost na porta 8080, então é imp
 ## Executando a Aplicação ##
 
 - Execute um git clone no repositorio.
-- Navegue ate a raiz do projeto é execute no terminal: npm run serve (certifique-se de possuir o node instalado em sua maquina)
+- Navegue ate a raiz do projeto e execute no terminal: npm run serve (certifique-se de possuir o node instalado em sua maquina)
 - Após isso um servidor local será gerado e a aplicação estara disponivel (Garanta que a API do back-end esteja funcional para a utilização 100% da aplicação)
 
 
