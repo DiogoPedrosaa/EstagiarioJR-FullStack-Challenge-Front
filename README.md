@@ -6,6 +6,8 @@ O Front tem um objetivo de ser simples destacando as atividades exercidas pela S
 A Aplicação tambem conta com um sistema de Login e Cadastro de Usuario que é necessario para realizar algumas atividades dentro do sistema. <P>
 O Consumo da API está configurado para o servidor back-end localhost na porta 8080, então é importante ter o back end rodando nessa porta para que a aplicação consiga consumir os dados do Back-End, caso queira alterar esse padrão pode ser feito no diretorio: \maceio-in\src\services\axios.ts
 
+Caso ocorra algum erro ao rodar o projeto, a Localização das dependencias necessarias estão presentes no arquivo package.json presente no diretorio raiz do projeto.
+
 ## Tecnologias Utilizadas
 
 - **Vue.js**: Utilizado no desenvolvimento do para criar interfaces de usuário reativas e componentes reutilizáveis.
