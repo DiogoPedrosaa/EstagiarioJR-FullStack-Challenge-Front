@@ -129,7 +129,7 @@ export default defineComponent({
         
         router.push({ name: "login" });
       } catch (err: any) {
-        error.value = err.response?.data?.error || "Erro ao registrar";
+        error.value = err.response?.data?.error || "Erro ao registrar, por favor note que é necessario pelo menos uma letra Maiuscula e oito caracteres";
         setTimeout(() => {
           error.value = ""; 
         }, 3000);
